@@ -1,212 +1,345 @@
-// Navigation Toggle
-const navToggle = document.querySelector('.nav-toggle');
-const navMenu = document.querySelector('nav ul');
-
-if (navToggle && navMenu) {
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-    });
-
-    // Close mobile menu when clicking on a link
-    document.querySelectorAll('nav ul li a').forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-        });
-    });
-}
-
-// Background Slideshow
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
-
-function nextSlide() {
-    if (slides.length > 0) {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
+// Product Data
+const products = {
+    1: {
+        title: "Luxury Sofas",
+        description: "Our luxury sofas are handcrafted by skilled artisans using traditional Turkish techniques. Each piece features premium materials, including solid wood frames, high-density foam, and the finest upholstery fabrics.",
+        features: [
+            "Hand-carved wooden frames",
+            "Premium fabric or leather upholstery",
+            "High-density foam for optimal comfort",
+            "Reinforced joints for durability",
+            "Custom sizing available"
+        ]
+    },
+    2: {
+        title: "Dining Tables",
+        description: "Make every meal an occasion with our exquisite dining tables. Crafted from premium woods with intricate detailing, these tables become the centerpiece of your dining experience.",
+        features: [
+            "Solid wood construction",
+            "Hand-finished surfaces",
+            "Intricate carved details",
+            "Sturdy and stable design",
+            "Various sizes and shapes available"
+        ]
+    },
+    3: {
+        title: "Bedroom Sets",
+        description: "Transform your bedroom into a personal sanctuary with our luxurious bedroom collections. From elegant beds to functional storage solutions, create the bedroom of your dreams.",
+        features: [
+            "Solid wood bed frames",
+            "Spacious wardrobes and dressers",
+            "Soft-close drawer mechanisms",
+            "Elegant hardware finishes",
+            "Custom configurations available"
+        ]
+    },
+    4: {
+        title: "Office Desks",
+        description: "Enhance your workspace with our executive office desks that combine functionality with sophisticated design. Perfect for home offices or corporate environments.",
+        features: [
+            "Spacious work surface",
+            "Integrated cable management",
+            "Sturdy construction",
+            "Elegant finish options",
+            "Optional storage additions"
+        ]
+    },
+    5: {
+        title: "Wardrobes",
+        description: "Our custom-designed wardrobes optimize space while adding an element of luxury to your bedroom. Tailored to your specific storage needs and aesthetic preferences.",
+        features: [
+            "Custom sizing and configuration",
+            "Premium wood construction",
+            "Soft-close doors and drawers",
+            "Interior lighting options",
+            "Various finish and hardware options"
+        ]
+    },
+    6: {
+        title: "Interior Decor",
+        description: "Complete your interior design with our selection of complementary decor pieces. From accent tables to decorative items, add the perfect finishing touches to your space.",
+        features: [
+            "Handcrafted decorative items",
+            "Premium materials and finishes",
+            "Various style options",
+            "Complements main furniture pieces",
+            "Unique statement pieces"
+        ]
     }
-}
+};
 
-// Change slide every 5 seconds if slides exist
-if (slides.length > 0) {
-    setInterval(nextSlide, 5000);
-}
-
-// Scroll Animations
-const fadeElements = document.querySelectorAll('.fade-in');
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, {
-    threshold: 0.1
-});
-
-fadeElements.forEach(element => {
-    observer.observe(element);
-});
-
-// Service Cards Animation
-const serviceCards = document.querySelectorAll('.service-card');
-
-const cardObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-            setTimeout(() => {
-                entry.target.classList.add('visible');
-            }, index * 200);
-        }
-    });
-}, {
-    threshold: 0.1
-});
-
-serviceCards.forEach(card => {
-    cardObserver.observe(card);
-});
-
-// Particle Effect
-function createParticles() {
-    const particlesContainer = document.getElementById('particles');
-    if (!particlesContainer) return;
-    
-    const particleCount = 30;
-    
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
-        
-        // Random size between 2px and 6px
-        const size = Math.random() * 4 + 2;
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        
-        // Random position
-        particle.style.left = `${Math.random() * 100}%`;
-        particle.style.top = `${Math.random() * 100}%`;
-        
-        // Random animation delay
-        particle.style.animationDelay = `${Math.random() * 8}s`;
-        
-        particlesContainer.appendChild(particle);
-    }
-}
-
-// Initialize particles when the page loads
-window.addEventListener('load', createParticles);
-
-// Form Submission
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('Thank you for your message! We will contact you soon.');
-        this.reset();
-    });
-}
-
-// Header scroll effect
-window.addEventListener('scroll', function() {
-    const header = document.querySelector('header');
-    if (window.scrollY > 100) {
-        header.style.padding = '1rem 0';
-        header.style.backgroundColor = 'rgba(26, 26, 26, 0.95)';
-    } else {
-        header.style.padding = '1.5rem 0';
-        header.style.backgroundColor = 'rgba(26, 26, 26, 0.9)';
-    }
-});
-
-// Car Filter Functionality
-const filterButtons = document.querySelectorAll('.filter-btn');
-const carCards = document.querySelectorAll('.car-card');
-
-if (filterButtons.length > 0 && carCards.length > 0) {
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            button.classList.add('active');
-            
-            const filterValue = button.getAttribute('data-filter');
-            
-            carCards.forEach(card => {
-                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                    card.style.display = 'block';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 100);
-                } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 300);
-                }
-            });
-        });
-    });
-}
-
-// FAQ Accordion
-const faqItems = document.querySelectorAll('.faq-item');
-
-if (faqItems.length > 0) {
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        
-        question.addEventListener('click', () => {
-            // Close all other items
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.classList.remove('active');
-                }
-            });
-            
-            // Toggle current item
-            item.classList.toggle('active');
-        });
-    });
-}
-
-// Contact form subject-based field changes
-const subjectSelect = document.getElementById('subject');
-if (subjectSelect) {
-    subjectSelect.addEventListener('change', function() {
-        const messageField = document.getElementById('message');
-        
-        switch(this.value) {
-            case 'sales':
-                messageField.placeholder = "Please let us know which vehicle(s) you're interested in and any specific requirements...";
-                break;
-            case 'test-drive':
-                messageField.placeholder = "Please let us know which vehicle you'd like to test drive and your preferred date/time...";
-                break;
-            case 'service':
-                messageField.placeholder = "Please describe the service or maintenance you need for your vehicle...";
-                break;
-            case 'financing':
-                messageField.placeholder = "Please tell us about your financing needs and any specific questions...";
-                break;
-            default:
-                messageField.placeholder = "How can we help you?";
-        }
-    });
-}
-
-// Initialize the page with any necessary setups
+// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Add any initialization code here
+    // Common functionality for all pages
     
-    // Set current year in footer if needed
-    const yearElement = document.querySelector('.footer-bottom p');
-    if (yearElement) {
-        const currentYear = new Date().getFullYear();
-        yearElement.innerHTML = yearElement.innerHTML.replace('2023', currentYear);
+    // Sticky Header
+    const header = document.getElementById('header');
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    }
+
+    // Mobile Navigation
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+
+    // Fade-in on Scroll
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const fadeInOnScroll = () => {
+        fadeElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementVisible = 150;
+            
+            if (elementTop < window.innerHeight - elementVisible) {
+                element.classList.add('visible');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', fadeInOnScroll);
+    // Initial check
+    fadeInOnScroll();
+
+    // Parallax Effect for Section Backgrounds
+    const sectionBgs = document.querySelectorAll('.section-bg');
+    if (sectionBgs.length > 0) {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            
+            sectionBgs.forEach(bg => {
+                const rate = scrolled * -0.5;
+                bg.style.transform = `translate3d(0px, ${rate}px, 0px)`;
+            });
+        });
+    }
+
+    // Page-specific functionality
+    
+    // Homepage Slideshow
+    if (document.querySelector('.slideshow')) {
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+        const slideInterval = 5000; // 5 seconds
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Start slideshow
+        let slideTimer = setInterval(nextSlide, slideInterval);
+
+        // Pause slideshow on hover
+        const slideshow = document.querySelector('.slideshow');
+        slideshow.addEventListener('mouseenter', () => {
+            clearInterval(slideTimer);
+        });
+
+        slideshow.addEventListener('mouseleave', () => {
+            slideTimer = setInterval(nextSlide, slideInterval);
+        });
+    }
+
+    // Product Modal
+    const viewProductButtons = document.querySelectorAll('.view-product');
+    const productModal = document.getElementById('productModal');
+    const modalClose = document.querySelector('.modal-close');
+    
+    if (viewProductButtons.length > 0 && productModal) {
+        viewProductButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productId = button.closest('.product-card').getAttribute('data-product');
+                const product = products[productId];
+                
+                if (product) {
+                    // Set modal content
+                    document.getElementById('modalTitle').textContent = product.title;
+                    document.getElementById('modalDescription').textContent = product.description;
+                    
+                    const featuresList = document.getElementById('modalFeatures');
+                    featuresList.innerHTML = '';
+                    
+                    product.features.forEach(feature => {
+                        const li = document.createElement('li');
+                        li.textContent = feature;
+                        featuresList.appendChild(li);
+                    });
+                    
+                    productModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        // Close Modal
+        modalClose.addEventListener('click', () => {
+            productModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close modal when clicking outside
+        productModal.addEventListener('click', (e) => {
+            if (e.target === productModal) {
+                productModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+
+    // Gallery Lightbox
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxPrev = document.querySelector('.lightbox-prev');
+    const lightboxNext = document.querySelector('.lightbox-next');
+    
+    if (galleryItems.length > 0 && lightbox) {
+        const galleryImages = [];
+        galleryItems.forEach(item => {
+            const img = item.querySelector('img');
+            if (img) {
+                galleryImages.push(img.src);
+            }
+        });
+
+        let currentImageIndex = 0;
+
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                currentImageIndex = index;
+                lightboxImage.src = galleryImages[currentImageIndex];
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Lightbox Navigation
+        if (lightboxPrev && lightboxNext) {
+            lightboxPrev.addEventListener('click', () => {
+                currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+                lightboxImage.src = galleryImages[currentImageIndex];
+            });
+
+            lightboxNext.addEventListener('click', () => {
+                currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+                lightboxImage.src = galleryImages[currentImageIndex];
+            });
+        }
+
+        // Close Lightbox
+        lightboxClose.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close lightbox when clicking outside
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+
+    // Read More/Less Toggle
+    const readMoreButtons = document.querySelectorAll('.read-more');
+    if (readMoreButtons.length > 0) {
+        readMoreButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const postFull = button.previousElementSibling;
+                const isExpanded = postFull.classList.contains('expanded');
+                
+                if (isExpanded) {
+                    postFull.classList.remove('expanded');
+                    button.textContent = 'Read More';
+                } else {
+                    postFull.classList.add('expanded');
+                    button.textContent = 'Read Less';
+                }
+            });
+        });
+    }
+
+    // Animated Counters
+    const counters = document.querySelectorAll('.counter-number');
+    if (counters.length > 0) {
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const duration = 2000; // 2 seconds
+                const step = target / (duration / 16); // 60fps
+                let current = 0;
+                
+                const updateCounter = () => {
+                    current += step;
+                    if (current < target) {
+                        counter.textContent = Math.floor(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                
+                updateCounter();
+            });
+        };
+
+        // Start counters when section is in view
+        const aboutSection = document.getElementById('about');
+        if (aboutSection) {
+            const aboutObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        aboutObserver.unobserve(aboutSection);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            aboutObserver.observe(aboutSection);
+        }
+    }
+
+    // Form Validation
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            
+            // Simple validation
+            if (name && email && phone && message) {
+                alert('Thank you for your message! We will get back to you soon.');
+                contactForm.reset();
+            } else {
+                alert('Please fill in all fields.');
+            }
+        });
     }
 });
