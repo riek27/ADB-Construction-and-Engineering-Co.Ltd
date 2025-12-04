@@ -1,1 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | AD&B Construction Co. Ltd</title>
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="#">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">AD&B <span>Construction</span></a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li class="dropdown">
+                        <a href="services.html" class="active">Services <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="#issb">Interlocking Stabilized Soil Blocks</a>
+                            <a href="#design">Architectural Design</a>
+                            <a href="#construction">General Construction</a>
+                            <a href="#materials">Supply of Materials</a>
+                        </div>
+                    </li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Mobile Navigation Toggle -->
+            <button class="mobile-nav-toggle" id="mobileNavToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav" id="mobileNav">
+            <div class="mobile-nav-header">
+                <a href="index.html" class="logo">AD&B <span>Construction</span></a>
+                <button class="mobile-nav-close" id="mobileNavClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <ul class="mobile-nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li>
+                    <button class="mobile-dropdown-toggle" id="mobileServicesToggle">
+                        Services <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="mobile-dropdown-content" id="mobileServicesContent">
+                        <a href="#issb">Interlocking Stabilized Soil Blocks</a>
+                        <a href="#design">Architectural Design</a>
+                        <a href="#construction">General Construction</a>
+                        <a href="#materials">Supply of Materials</a>
+                    </div>
+                </li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
 
+    <!-- WhatsApp Widget -->
+    <div class="whatsapp-widget">
+        <div class="whatsapp-button" id="whatsappButton">
+            <i class="fab fa-whatsapp"></i>
+        </div>
+        <div class="whatsapp-tooltip">
+            Chat with us on WhatsApp
+        </div>
+        <div class="whatsapp-popup" id="whatsappPopup">
+            <div class="popup-header">
+                <div class="popup-avatar">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <div class="popup-info">
+                    <h4>AD&B Construction Co. Ltd</h4>
+                    <p>Typically replies within 1 hour</p>
+                </div>
+                <button class="popup-close" id="popupClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="popup-content">
+                <p>Hello! 👋</p>
+                <p>How can we help you today?</p>
+            </div>
+            <div class="popup-actions">
+                <a href="https://wa.me/211922234996?text=Hello%20ADB%20Construction,%20I%20would%20like%20more%20information." 
+                   class="whatsapp-action-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    Start Chat
+                </a>
+                <button class="whatsapp-cancel" id="whatsappCancel">
+                    Maybe Later
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Hero -->
+    <section class="services-hero">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p>Comprehensive construction solutions tailored to meet your specific needs and budget</p>
+        </div>
+    </section>
+
+    <!-- Services Accordion -->
+    <section>
+        <div class="container">
+            <div class="services-accordion">
+                <!-- ISSB Service -->
+                <div class="accordion-item" id="issb">
+                    <div class="accordion-header">
+                        <h3>Interlocking Stabilized Soil Blocks (ISSB Production)</h3>
+                        <button class="accordion-toggle">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Our ISSB technology revolutionizes construction by providing an affordable, sustainable, and efficient alternative to conventional building materials. This innovative method combines local soil with a small amount of cement to create strong, interlocking blocks that require minimal mortar.</p>
+                            <ul>
+                                <li><strong>Significant Cost Savings:</strong> ISSB saves up to 40% of construction costs compared to fired bricks or concrete blocks, making quality housing more accessible.</li>
+                                <li><strong>Eco-Friendly Construction:</strong> Made from locally available soil with minimal cement (5-10%), significantly reducing carbon footprint and environmental impact.</li>
+                                <li><strong>Superior Durability:</strong> High compressive strength (up to 7MPa) with excellent thermal and acoustic properties for comfortable living spaces.</li>
+                                <li><strong>Construction Efficiency:</strong> Interlocking design eliminates the need for mortar in 70% of joints, speeding up construction by up to 50%.</li>
+                                <li><strong>Versatile Applications:</strong> Suitable for residential, commercial, institutional, and agricultural buildings of all sizes.</li>
+                                <li><strong>Minimal Skill Requirement:</strong> Simple construction technique that can be mastered quickly, creating local employment opportunities.</li>
+                            </ul>
+                            <div class="price-highlight">
+                                <h4>Affordable Housing Solutions</h4>
+                                <p>We build complete homes using ISSB technology starting from $9,000 – $13,000, depending on size and specifications. This includes foundation, walls, roof, doors, windows, and basic finishes. Our standardized designs optimize space and functionality while keeping costs affordable.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Architectural Design -->
+                <div class="accordion-item" id="design">
+                    <div class="accordion-header">
+                        <h3>Architectural Design</h3>
+                        <button class="accordion-toggle">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>Our architectural services combine creativity, functionality, and local context to deliver designs that meet your needs and exceed expectations. We specialize in creating spaces that are not only beautiful but also practical, sustainable, and culturally appropriate.</p>
+                            <ul>
+                                <li><strong>Concept Design:</strong> Initial sketches and 3D visualizations to bring your vision to life, with multiple options to choose from.</li>
+                                <li><strong>Technical Drawings:</strong> Detailed plans, elevations, sections, and specifications for construction approval and implementation.</li>
+                                <li><strong>Structural Design:</strong> Engineering solutions optimized for ISSB construction, ensuring safety and durability.</li>
+                                <li><strong>Interior Design:</strong> Space planning, material selection, and lighting design for functional and aesthetically pleasing interiors.</li>
+                                <li><strong>Site Planning:</strong> Optimal placement of buildings considering orientation, drainage, access, and environmental factors.</li>
+                                <li><strong>Sustainable Design:</strong> Integration of passive cooling, natural lighting, rainwater harvesting, and energy-efficient systems.</li>
+                                <li><strong>Cultural Integration:</strong> Designs that respect and reflect local traditions, lifestyles, and architectural heritage.</li>
+                            </ul>
+                            <p>We specialize in designs that maximize natural light, promote cross-ventilation, and incorporate passive cooling strategies suitable for South Sudan's climate. Our designs are not only aesthetically pleasing but also functional, durable, and cost-effective to build.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- General Construction -->
+                <div class="accordion-item" id="construction">
+                    <div class="accordion-header">
+                        <h3>General Construction Services</h3>
+                        <button class="accordion-toggle">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>End-to-end construction services from site preparation to final finishing, ensuring quality, timely completion, and value for money. We manage every aspect of your construction project with professionalism and attention to detail.</p>
+                            <ul>
+                                <li><strong>Site Preparation:</strong> Comprehensive clearing, leveling, soil testing, and foundation excavation services.</li>
+                                <li><strong>ISSB Construction:</strong> Fast, clean, and efficient wall construction using our specialized interlocking blocks with minimal waste.</li>
+                                <li><strong>Foundation Work:</strong> Durable foundation systems appropriate for local soil conditions and building requirements.</li>
+                                <li><strong>Roofing Systems:</strong> Installation of durable, weather-resistant roofing suitable for local climate conditions.</li>
+                                <li><strong>Finishing Works:</strong> High-quality plastering, painting, flooring, tiling, and installation of fixtures and fittings.</li>
+                                <li><strong>Utilities Installation:</strong> Professional plumbing, electrical, and sanitation systems installation.</li>
+                                <li><strong>Quality Assurance:</strong> Rigorous quality control at every stage of construction to ensure durability and safety.</li>
+                                <li><strong>Project Management:</strong> Comprehensive coordination of all construction activities, materials, and workforce.</li>
+                            </ul>
+                            <div class="price-highlight">
+                                <h4>Fast Construction Timeline</h4>
+                                <p>A typical 3-bedroom house can be completed in 6-8 weeks using our ISSB method, compared to 3-4 months with conventional construction. This accelerated timeline reduces labor costs and allows for quicker occupancy, providing better value for our clients.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Supply of Materials -->
+                <div class="accordion-item" id="materials">
+                    <div class="accordion-header">
+                        <h3>Supply of Construction Materials</h3>
+                        <button class="accordion-toggle">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>We supply high-quality construction materials for both ISSB and conventional building projects. Our reliable supply chain ensures timely delivery of materials to keep your project on schedule and within budget.</p>
+                            <ul>
+                                <li><strong>ISSB Blocks:</strong> Standard and custom-sized interlocking blocks in various colors, textures, and strengths for different applications.</li>
+                                <li><strong>Cement & Aggregates:</strong> Quality cement, sand, gravel, and crushed stone for all construction needs.</li>
+                                <li><strong>Roofing Materials:</strong> Corrugated iron sheets, timber trusses, insulation materials, and rainwater harvesting components.</li>
+                                <li><strong>Finishing Materials:</strong> Paints, tiles, sanitary ware, doors, windows, and hardware of various grades and styles.</li>
+                                <li><strong>Tools & Equipment:</strong> Manual and hydraulic ISSB presses, construction tools, safety equipment, and maintenance supplies.</li>
+                                <li><strong>Specialized Materials:</strong> Waterproofing compounds, additives, reinforcements, and other specialized construction products.</li>
+                                <li><strong>Bulk Supply:</strong> Large quantity supply for commercial and institutional projects with volume discounts available.</li>
+                            </ul>
+                            <p>We maintain strict quality control on all materials we supply, ensuring they meet or exceed industry standards. Our competitive pricing and reliable delivery make us the preferred supplier for construction projects across South Sudan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Process -->
+    <section class="service-process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Process</h2>
+                <p class="section-subtitle">How we deliver excellence from concept to completion</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <h4>Consultation</h4>
+                    <p>We begin by understanding your needs, budget, and vision through detailed consultations.</p>
+                </div>
+                <div class="process-step">
+                    <h4>Design</h4>
+                    <p>Our architects create customized designs that balance aesthetics, functionality, and budget.</p>
+                </div>
+                <div class="process-step">
+                    <h4>Planning</h4>
+                    <p>We develop comprehensive project plans, timelines, and budgets for your approval.</p>
+                </div>
+                <div class="process-step">
+                    <h4>Construction</h4>
+                    <p>Our skilled team executes the project with precision, quality control, and regular updates.</p>
+                </div>
+                <div class="process-step">
+                    <h4>Completion</h4>
+                    <p>We conduct final inspections and handover your completed project with documentation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section style="padding: 4rem 0; background-color: var(--charcoal); color: var(--white); text-align: center;">
+        <div class="container">
+            <h2 style="color: var(--white); margin-bottom: 1rem;">Ready to Start Your Project?</h2>
+            <p style="max-width: 700px; margin: 0 auto 2rem; opacity: 0.9;">Contact us today for a free consultation and quote tailored to your specific needs.</p>
+            <a href="contact.html" class="btn">Get a Free Quote</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">AD&B <span>Construction</span></div>
+                    <p>Building strong foundations with innovation — from ISSBs to world-class construction, design, and consultancy in South Sudan.</p>
+                    <div class="footer-social">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="gallery.html">Project Gallery</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Pope Road, Thong Piny, Juba, South Sudan</p>
+                    <p><i class="fas fa-phone"></i> 0922 234 996</p>
+                    <p><i class="fas fa-envelope"></i> info.adbtechnologiesltd@gmail.com</p>
+                    <p><i class="fab fa-whatsapp"></i> +211 922 234 996</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 AD&B Construction Co. Ltd. All Rights Reserved. | Building Strong Foundations With Innovation</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
