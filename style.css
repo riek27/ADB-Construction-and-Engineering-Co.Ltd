@@ -152,22 +152,51 @@ header {
     padding: 1.5rem 0;
 }
 
+/* LOGO CONTAINER */
 .logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--charcoal);
+    display: flex;
+    align-items: center;
+    gap: 12px;
     text-decoration: none;
     transition: var(--transition);
 }
 
+/* LOGO IMAGE */
+.logo img {
+    height: 55px;     /* Adjust as needed */
+    width: auto;
+    object-fit: contain;
+}
+
+/* TEXT CONTAINER */
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+/* MAIN BRAND NAME */
+.brand-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--charcoal);
+}
+
+/* SUBTEXT */
+.brand-sub {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--gold);
+    letter-spacing: 0.5px;
+}
+
+/* HOVER EFFECT */
 .logo:hover {
     transform: translateY(-2px);
 }
 
-.logo span {
-    color: var(--gold);
-}
 
 /* Desktop Navigation */
 .desktop-nav {
