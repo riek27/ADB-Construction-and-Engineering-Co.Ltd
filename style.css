@@ -418,15 +418,21 @@ header {
 }
 
 /* ===== HOME PAGE SPECIFIC ===== */
+/* ===== HOME PAGE SPECIFIC ===== */
 .hero {
     height: 90vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                url('https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') no-repeat center center/cover;
+
+    /* Much lighter overlay so image is visible */
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+        url('https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') no-repeat center center/cover;
+
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: var(--white);
+
     margin-top: -80px;
     padding-top: 80px;
     position: relative;
