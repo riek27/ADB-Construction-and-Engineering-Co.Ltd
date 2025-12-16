@@ -503,3 +503,34 @@ const animateOnScroll = () => {
 window.addEventListener('load', () => {
     animateOnScroll();
 });
+
+
+const form = document.getElementById("contactForm");
+const thankYouMessage = document.getElementById("thankYouMessage");
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault(); // Prevent page reload
+
+  const formData = new FormData(form);
+
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString()
+  })
+  .then(() => {
+    // Show success popup
+    thankYouMessage.style.display = "block";
+
+    // Hide after 5 seconds
+    setTimeout(() => {
+      thankYouMessage.style.display = "none";
+    }, 5000);
+
+    // Reset the form
+    form.reset();
+  })
+  .catch((error) => {
+    alert("Oops! Something went wrong. Please try again.");
+  });
+});
