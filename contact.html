@@ -130,6 +130,11 @@
   <div class="container">
     <div class="contact-container">
 
+      <!-- Thank You Popup -->
+      <div id="thankYouMessage" class="thank-you-message">
+        ✅ Thank you! Your message has been sent successfully.
+      </div>
+
       <!-- Contact Form -->
       <div class="contact-form">
         <h3>Send Us a Message</h3>
@@ -142,10 +147,10 @@
           id="contactForm"
         >
 
-          <!-- Required hidden input -->
+          <!-- Hidden input required by Netlify -->
           <input type="hidden" name="form-name" value="contact">
 
-          <!-- Honeypot field (spam protection) -->
+          <!-- Honeypot field for spam protection -->
           <p hidden>
             <label>
               Don’t fill this out if you're human:
@@ -184,6 +189,9 @@
       </div>
 
     </div>
+  </div>
+</section>
+
   </div>
 </section>
 
